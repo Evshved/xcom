@@ -19,7 +19,7 @@ describe LogAnalyzer do
       ]
     }
     subject do
-      described_class.new(reader: reader)
+      described_class.new(reader: reader, printer: Printer)
     end
 
     before do

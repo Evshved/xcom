@@ -52,14 +52,13 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  bundler (~> 2.2.29)
   pry
   rspec (~> 3.10.0)
   rubocop (~> 1.11.0)
   simplecov (~> 0.21.2)
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.29

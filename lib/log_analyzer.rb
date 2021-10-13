@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'printer'
 require_relative 'lines_formatter'
 require_relative 'analyzer/sort_by_count'
 require_relative 'analyzer/uniq_visits'
 require_relative 'analyzer/transitions'
 
 class LogAnalyzer
-  def initialize(reader:, printer: Printer)
+  def initialize(reader:, printer:)
     @reader = reader
     @printer = printer
   end

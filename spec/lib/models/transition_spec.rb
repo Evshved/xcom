@@ -8,7 +8,6 @@ describe Transition do
     subject { described_class.new(from: '/minsk', to: '/london', weight: 1) }
     it 'returns formatted string for the transition' do
       result = subject.to_s
-      'Transitions from #{from} to #{to} - #{weight} time(s)'
       expect(result).to eq('Transitions from /minsk to /london - 1 time(s)')
     end
   end

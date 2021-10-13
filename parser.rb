@@ -3,6 +3,7 @@
 
 require_relative 'lib/file_reader'
 require_relative 'lib/log_analyzer'
+require_relative 'lib/printer'
 require_relative 'lib/exceptions'
 
 if ARGV.empty?
@@ -22,4 +23,4 @@ rescue UnableToOpenFileError
   exit 1
 end
 
-LogAnalyzer.new(reader: reader).analyze
+LogAnalyzer.new(reader: reader, printer: Printer).analyze
