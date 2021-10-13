@@ -49,17 +49,17 @@ GEM
     unicode-display_width (2.1.0)
 
 PLATFORMS
-  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
+  bundler (~> 2.2.29)
   pry
   rspec (~> 3.10.0)
   rubocop (~> 1.11.0)
   simplecov (~> 0.21.2)
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.15
+   2.2.29
