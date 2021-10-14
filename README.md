@@ -3,12 +3,13 @@
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 This is a project to parse a web server log file and extract number
-of visits per page in total and unique methods.
+of visits per page in total and unique methods and to build map or
+transitions between pages.
 
 ## Run
 
 First clone the repository and `cd` into the root of the project.
-Ruby 2.7.1 is used to develop.
+Ruby 3.0.2 is used to develop.
 
 To install dependencies execute:
 
@@ -28,7 +29,7 @@ Rspec is utilized to write test and Rubocop to lint the code. To run
 tests run:
 
 ```
-$ rspec
+$ bundle exec rspec
 ```
 
 and to run rubocop:
@@ -69,6 +70,8 @@ The project has room for improvement:
 
 * Add usage document to `./parser.rb` command.
 * Add `--help` command.
+* Add support of different outputs
 * In case it will be needed to process bigger sets of data, parallel processing might be implementd.
 * Provide an option for the terminal command to select needed analyzer. In this case we can move Analyzers injections to upper architecture level.
 * Encapsulate solution in a Gem.
+* Store parsed data in database
