@@ -44,38 +44,31 @@ The code base is 100% under test coverage.
 ## Architecture
 
 Entry point of the project is `parser.rb` script. It checks if there
-is enough passed argument in terminal. Then, it use `FileReader`
-class to create a file handle refer to passed argument. Finally,
-an instance of `LogAnalyzer` is created with running `analyze`
-instance method of it.
+is enough passed argument in terminal. Then, it uses `FileReader`
+class to create a file handler refer to passed argument. Finally,
+an instance of `LogAnalyzer` is created with reader and `Parser` and `analyze`
+method is called on it.
 
 In order to fulfill its task, `LogAnalyzer` does the following steps:
 
-* Read log file and passes lines to `LinesFormatter`
+* Read log file with received reader and pass lines to `LinesFormatter`
 * Send line_formatter with lines inside to different analyzers
-* Each analyzer return array of objects with 
-* Present stored data in the output
+* Each analyzer returns array of objects with analyzed data prepared to be printed
+* Each array is passed to Printer, where it's finally printed
 
-These behaviours which are implemented in `FileReader`, `Store` and
-`Printer` class respectively, injected into `LogFileAnalyzer` class
-as dependencies in instance initialization.
-
-Utilizing this architecture helps in exchanging each dependency
-class with another one which can present the same behaviour but in
-another manner. For instance, an alternative file reader class could
-deal with another format of log file while it fits in the same
-architecture.
+This architecture is easy to extend because if once it's needed to add another
+type of analyzer, it will be needed to just add a new class with new formulas inside.
+Introduced models for analysis results (`PageView`, `Transition`) which know
+how to be printed, help eliminate dependency between printer and data it prints.
+Injection of dependencies to `Printer` and `FileReader` at the upper architecture
+level helps to achieve easy extention for other file and output formats.
 
 ## To Do
 
 The project has room for improvement:
 
 * Add usage document to `./parser.rb` command.
-* Parsing terminal argument utilizing a third party gem like
-`optparse` will improve robustness with more capabilities.
-* Improve efficiency of `Store` with cache mechanism.
-* Provide an option for the terminal command to switch between total
-and unique visits stat.
-* Add more custom exception class with more detail to catch possible
-exception while working with files.
+* Add `--help` command.
+* In case it will be needed to process bigger sets of data, parallel processing might be implementd.
+* Provide an option for the terminal command to select needed analyzer. In this case we can move Analyzers injections to upper architecture level.
 * Encapsulate solution in a Gem.
